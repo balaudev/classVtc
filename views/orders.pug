@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  a(href="/admin")
+    button(type="button" class="button_small") Back to admin
+  h3= title
+  
+  div(id="loginImg")
+    ul
+        li
+         a(href="/admin/edit-remove") 
+            button(class="button_small") Mettre à jour / Supprimer
+        li
+         a(href="/admin/orders")  
+           button(class="button_small") All Reservations
+        
+  hr
+  each order in allOrders
+     article(class="item")
+       div(class="overlay")
+        p= `Nom : ${order.name} || Date : ${order.createdOn.toDateString()}`
+        p= `Numero de telephone: ${order.num_tel} `
+        p= `Nombre de personne: ${order.nombre_personne} `
+        p= `Addresse de départ: ${order.addresse_depart } `
+        p= `Addresse d'arrivée: ${order.addresse_fin } `
+        p= `Date de départ: ${order.date_depart}`
+        p= `Heure de départ: ${order.heure_depart} `

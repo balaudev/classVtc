@@ -1,0 +1,49 @@
+extends layout
+include mixins/_user_form
+
+block content
+  img(src="/images/paris4.jpg")
+  div(id="number" )
+
+
+      h2 Organisez votre trajet sur mesure
+          
+
+  h3=title 
+  div(class="loginButton")
+    h3 je me connecte
+    div(id="loginImg")
+      
+      a(href="/auth/facebook")
+        img(src="/images/twitter2.png" id="loginBtnImg1")
+      a(href="/auth/google")
+        img(src="/images/google7.jpg" id="loginBtnImg2")
+
+    div(id="loginImgBigScreen")
+      
+      a(href="/auth/facebook")
+        img(src="/images/twLoginBtn.png" id="loginBtnImg3")
+      a(href="/auth/google")
+        img(src="/images/logogoogle.png" id="loginBtnImg4")
+     
+  
+  if errors
+    ul
+      for error in errors
+        li=error.msg
+  +userForm()
+  div(id="steps")
+    ul
+      li(id="step-1")
+        h4 Planifier
+      li(id="step-2")
+        h4 Réserver
+      li(id="step-3")
+        h4 Et c'est parti!!!
+
+  .clear
+
+  .footer
+    h1 VTC Agency.
+    div(id="copyright")
+      p Copyright 2019© Tous droits réservés.

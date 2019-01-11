@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      nav
+        a(href="/")
+          h1 VTC Agency.
+        
+           
+        ul
+          if !user
+            li
+              a(href="/register") Créer un compte
+            li
+              a(href="/login") Se connecter
+          else
+            li
+              a(href="/user") Mon Compte
+            li
+              a(href="/logout") Se déconnecter 
+
+      -const values = Object.values(flash)
+      -const keys = Object.keys(flash)
+        if keys.length > 0
+          div(class=`message message_${keys}`)
+            span= values
+            span.close_btn(onclick="this.parentNode.remove()") &times;
+      div(id="number" )
+        h2 Contactez nous au 061598632
+        
+        
+        
+
+    
+    block content

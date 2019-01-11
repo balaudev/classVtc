@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  img(src="/images/vtcuser1.jpg")
+  div(id="number")
+    h3= title
+  
+  
+  if user
+        h3 Bonjour, 
+
+        if orders.length > 0
+            h3 Toutes vos Réservations
+            each order in orders
+                article(class="item")
+                    div(class="overlay")
+                        p= `Nom : ${order.name} || Date : ${order.createdOn.toDateString()}`
+                        p= `Numero de telephone: ${order.num_tel} `
+                        p= `Nombre de personne: ${order.nombre_personne} `
+                        p= `Addresse de départ: ${order.addresse_depart } `
+                        p= `Addresse d'arrivée: ${order.addresse_fin } `
+                        p= `Date de départ: ${order.date_depart}`
+                        p= `Heure de départ: ${order.heure_depart} `
+                
+
+        else
+            h3 Pas encore de réservation ....
+
+  else
+        h3 Il faut se connecter pour voir cette section

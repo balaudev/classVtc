@@ -1,0 +1,89 @@
+mixin reservForm(data)
+  div(class="container")
+    div(id="logbox")
+      if url==="/user"  
+        h3=title
+        form(action="/confirmation" method="POST")
+          
+            
+          input(type="text" name="name" class="input" id="first_name" placeholder="Nom - Prenom: "     required)
+
+          
+            
+          input(type="tel" name="num_tel" class="input" id="num_tel" placeholder= "Numero de telephone: "    required)
+
+          
+            
+          input(type="number" name="nombre_personne" class="input" id="nombre_personne" min="1" max="3" placeholder="nombre de personne"  required)
+
+          
+            
+          input(type="text" name="addresse_depart" class="input" id="addresse_depart" placeholder="addresse de depart" required)
+
+          
+            
+          input(type="text" name="addresse_fin" class="input" id="addresse_fin" placeholder="addresse d'arrivée" required)
+
+          
+            
+          input(type="date" name="date_depart" class="input" id="date_depart" placeholder="date de départ" required)
+
+          input(type="time" name="heure_depart" class="input" id="heure_depart" placeholder="heure de départ" required)
+
+          
+          button(type="submit" ) CONFIRMER
+      else if url.startsWith("/admin/")
+        
+        article(class="item")
+          div(class="overlay")
+            p= `Nom : ${data.name} `
+            p= `Numero de telephone: ${data.num_tel} `
+            p= `Nombre de personne: ${data.nombre_personne} `
+            p= `Addresse de départ: ${data.addresse_depart } `
+            p= `Addresse d'arrivée: ${data.addresse_fin } `
+            p= `Date de départ: ${data.date_depart}`
+            p= `Heure de départ: ${data.heure_depart} `
+
+            
+            a(href=`${data._id}/update`) 
+              button(class="button_small") Mettre à jour
+            a(href=`${data._id}/delete`) 
+              button(class="button_small") Effacer
+
+           
+      else
+        article(class="item")
+          div(class="overlay")
+            p= `Nom : ${data.name} `
+            p= `Numero de telephone: ${data.num_tel} `
+            p= `Nombre de personne: ${data.nombre_personne} `
+            p= `Addresse de départ: ${data.addresse_depart } `
+            p= `Addresse d'arrivée: ${data.addresse_fin } `
+            p= `Date de départ: ${data.date_depart}`
+            p= `Heure de départ: ${data.heure_depart} `
+
+            -const query = `id=${user._id}&name=${data.name}&num_tel=${data.num_tel}&nombre_personne=${data.nombre_personne}&addresse_depart=${data.addresse_depart}&addresse_fin=${data.addresse_fin}&date_depart=${data.date_depart}&heure_depart=${data.heure_depart}`
+            a.button(href=`/order-placed/${query}`) Reserver
+          
+          
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+        

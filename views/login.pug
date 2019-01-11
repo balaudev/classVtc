@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  
+  div(class="loginButton")
+
+    h3= title
+    div(id="loginImg")
+    
+        a(href="/auth/facebook")
+            img(src="/images/facebook.jpg" id="loginBtnImg1")
+        a(href="/auth/google")
+            img(src="/images/google7.jpg" id="loginBtnImg2")
+
+    div(id="loginImgBigScreen")
+      
+      a(href="/auth/facebook")
+        img(src="/images/facebookBtn.png" id="loginBtnImg3")
+      a(href="/auth/google")
+        img(src="/images/logogoogle.png" id="loginBtnImg4")
+    
+
+    div(class="container")
+
+      div(id="logbox")
+    
+        form(action="/login" method="POST")
+            
+            
+            input(type="email" name="email" class="input"  placeholder="email" id="email")
+
+            
+            
+            input(type="password" name="password" class="input" placeholder="mot de passe" id="password")
+
+            
+            button(type="submit" ) Se connecter
