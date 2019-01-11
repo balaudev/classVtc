@@ -70,8 +70,8 @@ passport.use(db.userModel.createStrategy());
 passport.use(
   new Twitter(
     {
-      clientID: process.env.twConsumerKey,
-      clientSecret: process.env.twConsumerSecret,
+      consumerKey: process.env.twConsumerKey,
+      consumerSecret: process.env.twConsumerSecret,
       callbackURL: process.env.host + "/auth/twitter/callback",
       profileFields: ["id", "displayName", "emails", "photos"]
     },
@@ -82,8 +82,8 @@ passport.use(
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      consumerKey: process.env.GOOGLE_CLIENT_ID,
+      consumerSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.host + "/auth/google/callback",
       proxy: true
     },
