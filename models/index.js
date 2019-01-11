@@ -31,7 +31,7 @@ const vtcUser = new mongoose.Schema({
     }
   },
   social: {
-    fb: {
+    tw: {
       profileId: String,
       fullName: String,
       profilePic: String

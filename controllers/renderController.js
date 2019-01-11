@@ -89,13 +89,13 @@ exports.loginPost = Passport.authenticate("local", {
   failureFlash: "La connexion a échoué, Recommencez"
 });
 
-// exports.loginGetFacebook = Passport.authenticate("facebook");
+exports.loginGetTwitter = Passport.authenticate("twitter");
 
-// exports.logFacebookCallback = Passport.authenticate("facebook", {
-//   successRedirect: "/user",
-//   successFlash: "Vous êtes connecté(e)",
-//   failureRedirect: "/register"
-// });
+exports.logTwitterCallback = Passport.authenticate("twitter", {
+  successRedirect: "/user",
+  successFlash: "Vous êtes connecté(e)",
+  failureRedirect: "/register"
+});
 
 exports.loginGetGoogle = Passport.authenticate("google", {
   scope: ["profile", "email"]

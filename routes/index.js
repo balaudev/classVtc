@@ -18,8 +18,8 @@ router.post(
 /* LOGIN page. */
 router.get("/login", renderController.loginGet);
 router.post("/login", renderController.loginPost);
-// router.get("/auth/facebook", renderController.loginGetFacebook);
-// router.get("/auth/facebook/callback", renderController.logFacebookCallback);
+router.get("/auth/twitter", renderController.loginGetTwitter);
+router.get("/auth/twitter/callback", renderController.logTwitterCallback);
 
 router.get("/auth/google", renderController.loginGetGoogle);
 router.get("/auth/google/callback", renderController.logGoogleCallback);

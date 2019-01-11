@@ -1,6 +1,7 @@
 const passport = require("passport");
 // const FacebookStrategy = require("passport-facebook").Strategy;
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const Twitter = require("passport-twitter").Strategy;
 const db = require("../models");
 
 passport.serializeUser((user, done) => {
@@ -12,31 +13,31 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-// let authProcessorFaceBook = (accessToken, refreshToken, profile, done) => {
-//   // Find a user in the local db using profile.id
-//   // If the user is found, return the user data using the "done()" method
-//   //If the user is not found, create one in the local db and return
-//   db.userModel
-//     .findOne({ "social.fb.profileId": profile.id })
-//     .then(existingUser => {
-//       if (existingUser) {
-//         //we already have a record with the given profile ID
-//         done(null, existingUser);
-//         console.log("error", " new user: " + existingUser);
-//       } else {
-//         const newUser = new db.userModel();
-//         newUser.social.fb.profileId = profile.id;
-//         newUser.social.fb.fullName = profile.displayName;
-//         newUser.social.fb.profilePic = profile.photos[0].value || "";
-//         newUser
-//           .save()
-//           .then(user => done(null, user))
-//           .catch(error =>
-//             console.log("error", "Error when creating new user: " + error)
-//           );
-//       }
-//     });
-// };
+let authProcessorTwitter = (accessToken, refreshToken, profile, done) => {
+  // Find a user in the local db using profile.id
+  // If the user is found, return the user data using the "done()" method
+  //If the user is not found, create one in the local db and return
+  db.userModel
+    .findOne({ "social.tw.profileId": profile.id })
+    .then(existingUser => {
+      if (existingUser) {
+        //we already have a record with the given profile ID
+        done(null, existingUser);
+        console.log("error", " new user: " + existingUser);
+      } else {
+        const newUser = new db.userModel();
+        newUser.social.tw.profileId = profile.id;
+        newUser.social.tw.fullName = profile.displayName;
+        newUser.social.tw.profilePic = profile.photos[0].value || "";
+        newUser
+          .save()
+          .then(user => done(null, user))
+          .catch(error =>
+            console.log("error", "Error when creating new user: " + error)
+          );
+      }
+    });
+};
 
 let authProcessorGoogle = (accessToken, refreshToken, profile, done) => {
   // Find a user in the local db using profile.id
@@ -66,26 +67,25 @@ let authProcessorGoogle = (accessToken, refreshToken, profile, done) => {
 
 passport.use(db.userModel.createStrategy());
 
-// passport.use(
-//   new FacebookStrategy(
-//     {
-//       clientID: process.env.fbClientID,
-//       clientSecret: process.env.fbClientSecret,
-//       callbackURL: process.env.fbCallbackURL,
-//       profileFields: ["id", "displayName", "emails", "photos"]
-//     },
-//     authProcessorFaceBook
-//   )
-// );
+passport.use(
+  new Twitter(
+    {
+      clientID: process.env.twConsumerKey,
+      clientSecret: process.env.twConsumerSecret,
+      callbackURL: process.env.host + "/auth/twitter/callback",
+      profileFields: ["id", "displayName", "emails", "photos"]
+    },
+    authProcessorTwitter
+  )
+);
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.googleClientID,
-      clientSecret: process.env.googleClientSecret,
-      callbackURL: process.env.googleCallbackURL,
-      proxy: true,
-      profileFields: ["id", "displayName", "emails", "photos"]
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: process.env.host + "/auth/google/callback",
+      proxy: true
     },
     authProcessorGoogle
   )
