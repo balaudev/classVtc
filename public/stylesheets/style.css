@@ -224,33 +224,10 @@ button {
 }
 
 
-#steps ul {
-  margin: 80px 20px;
-}
-#steps ul li {
-  width: 180px;
-  float: left;
-  padding-top: 140px;
-  text-align: center;
-  margin-right: 10px;
-}
-#step-1 {
-  background: url("/images/steps-icon-1.png")no-repeat top center ;
-}
-#step-2 {
-  background: url("/images/steps-icon-2.png") no-repeat top center;
-}
-#step-3 {
-  background: url("/images/steps-icon-3.png") no-repeat top center;
-}
-
-.clear {
-  clear: both;
-}
-
 .footer {
   height: 260px;
   background-color: #444;
+  
 }
 .footer h1 {
   
