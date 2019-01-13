@@ -6,11 +6,11 @@ const { check, validationResult } = require("express-validator/check");
 const { sanitize } = require("express-validator/filter");
 
 exports.homePageGet = (req, res) => {
-  res.render("index", { title: "Appelez ou Créer un compte pour reserver" });
+  res.render("index", { title: "Appeler ou S'enregistrer pour reserver" });
 };
 
 exports.registerGet = (req, res) => {
-  res.render("register", { title: "Je crée mon compte pour reserver" });
+  res.render("register", { title: "Je  m'enregistre pour reserver" });
 };
 
 exports.registerPost = [
@@ -79,7 +79,7 @@ exports.registerPost = [
 ];
 
 exports.loginGet = (req, res) => {
-  res.render("login", { title: " Continuez pour se connecter" });
+  res.render("login", { title: " Se connecter" });
 };
 
 exports.loginPost = Passport.authenticate("local", {

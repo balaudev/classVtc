@@ -7,13 +7,13 @@ html
     header
       nav
         a(href="/")
-          h1 VTC Agency.
+          img#logo(src="/images/logovtc.png")
         
            
         ul
           if !user
             li
-              a(href="/register") Créer un compte
+              a(href="/register") S'enregistrer
             li
               a(href="/login") Se connecter
           else
@@ -28,8 +28,7 @@ html
           div(class=`message message_${keys}`)
             span= values
             span.close_btn(onclick="this.parentNode.remove()") &times;
-      div(id="number" )
-        h2 Contactez nous au 061598632
+     
         
         
         
