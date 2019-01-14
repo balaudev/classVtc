@@ -79,7 +79,7 @@ exports.registerPost = [
 ];
 
 exports.loginGet = (req, res) => {
-  res.render("login", { title: " Se connecter" });
+  res.render("login", { title: " Je me connecte" });
 };
 
 exports.loginPost = Passport.authenticate("local", {
