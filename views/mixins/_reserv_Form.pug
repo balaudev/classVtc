@@ -1,37 +1,50 @@
 mixin reservForm(data)
-  div(class="container")
-    div(id="logbox")
+  div(class="section section-contact-us text-center")
+    div(class="container")
       if url==="/user"  
-        h4=title
-        form(action="/confirmation" method="POST")
-          
-            
-          input(type="text" name="name" class="input" id="first_name" placeholder="Nom - Prenom: "     required)
+        h3(class="title")=title
+        div(class="row")
+          div(class="col-lg-12 text-center col-md-8 ml-auto mr-auto")
+            form(action="/confirmation" method="POST")
 
-          
-            
-          input(type="tel" name="num_tel" class="input" id="num_tel" placeholder= "Numero de telephone: "    required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons users_single-02")
+                input(type="text" name="name" class="form-control" id="name" placeholder="Nom - Prenom: " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons tech_mobile")
+                input(type="tel" name="num_tel" class="form-control" id="num_tel" placeholder="Numero de telephone: " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons sport_user-run")
+                input(type="number" name="nombre_personne" class="form-control" id="nombre_personne" min="1" max="3" placeholder="nombre de personne " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons shopping_shop")
+                input(type="text" name="addresse_depart" class="form-control" id="addresse_depart"  placeholder="addresse de depart " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons shopping_shop")
+                input(type="text" name="addresse_fin" class="form-control" id="addresse_fin"  placeholder="addresse d'arrivée " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons education_paper")
+                input(type="date" name="date_depart" class="form-control" id="date_depart"  placeholder="date de départ " required)
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons tech_watch-time")
+                input(type="time" name="heure_depart" class="form-control" id="heure_depart"  placeholder="heure de départ " required)
+              button(type="submit" class="btn btn-info btn-round btn-block  btn-lg"  ) CONFIRMER
+              
 
-          
-            
-          input(type="number" name="nombre_personne" class="input" id="nombre_personne" min="1" max="3" placeholder="nombre de personne"  required)
-
-          
-            
-          input(type="text" name="addresse_depart" class="input" id="addresse_depart" placeholder="addresse de depart" required)
-
-          
-            
-          input(type="text" name="addresse_fin" class="input" id="addresse_fin" placeholder="addresse d'arrivée" required)
-
-          
-            
-          input(type="date" name="date_depart" class="input" id="date_depart" placeholder="date de départ" required)
-
-          input(type="time" name="heure_depart" class="input" id="heure_depart" placeholder="heure de départ" required)
-
-          
-          button(type="submit" ) CONFIRMER
       else if url.startsWith("/admin/")
         
         article(class="item")
@@ -46,9 +59,9 @@ mixin reservForm(data)
 
             
             a(href=`${data._id}/update`) 
-              button(class="button_small") Mettre à jour
+              button(class="btn btn-info btn-default ") Mettre à jour
             a(href=`${data._id}/delete`) 
-              button(class="button_small") Effacer
+              button(class="btn btn-info btn-default  ") Effacer
 
            
       else

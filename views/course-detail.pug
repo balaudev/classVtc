@@ -2,14 +2,14 @@ extends layout
 include mixins/_reserv_Form
 
 block content
-  a(href="/admin")
-    button(type="button" class="button_small") Back to admin
-  h3= title 
-        
-  hr
+  div(class="wrapper")
+    div(class="page-header clear-filter" filter-color="orange")
+      div(class="page-header-image" data-parallax="true" style="background-image:url('/assets/img/vtc3.jpg');")
+    a(href="/admin")
+      button(type="button" class="btn btn-danger btn-round  ") Back to admin
+    div(class="espaceuser")
+      h3(class="title")= title
   
-
-  div(id="logadmin")
     
     each data in courseData
       +reservForm(data)

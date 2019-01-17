@@ -1,14 +1,19 @@
 extends layout
 
 block content
-  img(src="/images/adminimg.jpg" )
-  h3= title
-  hr
-  div(id="numberuser")
-    ul
-      li
-        a(href="/admin/edit-remove") Mettre à jour / Supprimer
-      li
-        a(href="/admin/orders")  Reservations
+  div(class="wrapper")
+    div(class="page-header clear-filter" filter-color="orange")
+      div(class="page-header-image" data-parallax="true" style="background-image:url('assets/img/adminimg.jpg');")
+    div(class="espaceuser")
+      h3(class="title")= title
+    hr
+    div(class="container admin")
+      ul
+        li
+          a(href="/admin/edit-remove") 
+            button(class="btn btn-info btn-default  ") Mettre à jour / Supprimer
+        li
+          a(href="/admin/orders")  
+            button(class="btn btn-info btn-default  ") Reservations
       
       

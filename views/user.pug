@@ -2,17 +2,20 @@ extends layout
 include mixins/_reserv_Form
 
 block content
-  img(src="/images/vtcuser2.jpg")
-  div(id="numberuser")
-    h3 Bienvenue, dans votre espace personnel 
-       
-          
-  +reservForm()
-  div(id="numberuser")
-    ul
-      li
-        a(href="/user/orders") 
-          button(class="button_small") Mes dernières réservations
+  div(class="wrapper")
+    div(class="page-header clear-filter" filter-color="orange")
+      div(class="page-header-image" data-parallax="true" style="background-image:url('assets/img/vtcuser2.jpg');")
+
+    div(class="espaceuser")
+      h3(class="title") Bienvenue, dans votre espace personnel 
+      
+        
+    +reservForm()
+    div(class="container user ")
+      ul
+        li
+          a(href="/user/orders") 
+            button(class="btn btn-info btn-default  ") Mes dernières réservations
 
   
 

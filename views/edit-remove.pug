@@ -1,27 +1,31 @@
 extends layout
 
 block content
-  a(href="/admin")
-    button(type="button" class="button_small") Back to admin
-  h3= title
-  
-  div(class="container")
-    div(id="logbox")
-      h4 rentrez le nom ou le numero de telephone
-      form(action="/admin/edit-remove" method="POST")
-        
-          
-        input(type="text" name="name" class="input" id="first_name" placeholder="Nom - Prenom" )
+  div(class="wrapper")
+    div(class="page-header clear-filter" filter-color="orange")
+      div(class="page-header-image" data-parallax="true" style="background-image:url('/assets/img/vtc3.jpg');")
+    a(href="/admin")
+      button(type="button" class="btn btn-danger btn-round  ") Back to admin
+    div(class="espaceuser")
+      h3(class="title")= title
 
+    div(class="section section-contact-us text-center")
+      div(class="container")
+        div(class="row")
+          div(class="col-lg-12 text-center col-md-8 ml-auto mr-auto")
+              form(action="" method="POST")
+                div(class="input-group input-lg")
+                  div(div class="input-group-prepend")
+                    span(class="input-group-text")
+                      i(i class="now-ui-icons users_single-02")
+                  input(type="text" name="name" class="form-control" id="first_name" placeholder="Nom - Prenom" )
+                h3 ou
 
-        p OU:
-
-        
-          
-        input(type="tel" name="num_tel" class="input" id="num_tel" placeholder="numero de telephone" )
-
-        
-          
-
-        
-        button(type="submit" ) CONFIRMER
+                div(class="input-group input-lg")
+                  div(div class="input-group-prepend")
+                    span(class="input-group-text")
+                      i(i class="now-ui-icons tech_mobile")
+                  input(type="tel" name="num_tel" class="form-control" id="num_tel" placeholder="numero de telephone" )
+                button(type="submit" class="btn btn-info btn-round btn-block  btn-lg"  ) CONFIRMER
+    
+    

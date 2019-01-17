@@ -1,32 +1,88 @@
 mixin userForm()
-  div(class="container")
-    div(id="logbox")
-      h4 S'enregistrer
-      form(action="/register" method="POST")
-        
-          
-        input(type="text" name="first_name" class="input" id="first_name" placeholder="nom" required)
+  div(class="section section-contact-us text-center")
+    div(class="container")
+      h3(class="title") S'enregistrer
+      p(class="description") Avec les réseaux sociaux ou je créer mon compte 
+      div(class="card-header text-center")
+        div(class="social-line")
+          a(href="/auth/twitter" class="btn btn-neutral btn-twitter btn-icon btn-round")
+            i(class="fab fa-twitter fa-2x")
+          a(href="/auth/google" class="btn btn-neutral btn-google btn-icon btn-default")
+            i(class="fab fa-google-plus fa-2x")
+      div(class="row")
+        div(class="col-lg-12 text-center col-md-8 ml-auto mr-auto")
+            form(action="/register" method="POST")
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons users_circle-08")
+                input(type="text" name="first_name" class="form-control" id="first_name" placeholder="nom" required)
+
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons users_circle-08")
+                input(type="text" name="surname" class="form-control" id="surname" placeholder="prénom" required)
+
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons ui-1_email-85")
+                input(type="text" name="email" class="form-control" id="email" placeholder="email" required)
+
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons ui-1_email-85")
+                input(type="text" name="confirm_email" class="form-control" id="confirm_email" placeholder="confirmez l'email" required)
+
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons objects_key-25")
+                input(type="password" name="password" class="form-control" id="password" placeholder="mot de passe" required)
+
+              div(class="input-group input-lg")
+                div(div class="input-group-prepend")
+                  span(class="input-group-text")
+                    i(i class="now-ui-icons objects_key-25")
+                input(type="password" name="confirm_password" class="form-control" id="confirm_password" placeholder="confirmez mot de passe" required)
+
+              button(type="submit" class="btn btn-info btn-round btn-block  btn-lg"  ) CONFIRMER
 
 
-        input(type="text" name="surname" class="input" id="surname" placeholder="prenom" required)
 
 
-        
-          
-        input(type="text" name="email" class="input" id="email" placeholder="email" required)
 
-        
-          
-        input(type="text" name="confirm_email" class="input" id="confirm_email" placeholder="confirmez email" required)
 
-        
-          
-        input(type="password" name="password" class="input" id="password" placeholder="mot de passe" required)
 
-        
-          
-        input(type="password" name="confirm_password" class="input" id="confirm_password" placeholder="confirmez le mot de passe" required)
 
-        
-        button(type="submit"  ) CONFIRMER
+
+
+              
+                
+              //- input(type="text" name="first_name" class="input" id="first_name" placeholder="nom" required)
+
+
+              //- input(type="text" name="surname" class="input" id="surname" placeholder="prenom" required)
+
+
+              
+                
+              //- input(type="text" name="email" class="input" id="email" placeholder="email" required)
+
+              
+                
+              //- input(type="text" name="confirm_email" class="input" id="confirm_email" placeholder="confirmez email" required)
+
+              
+                
+              //- input(type="password" name="password" class="input" id="password" placeholder="mot de passe" required)
+
+              
+                
+              //- input(type="password" name="confirm_password" class="input" id="confirm_password" placeholder="confirmez le mot de passe" required)
+
+              
+              //- button(type="submit"  ) CONFIRMER
     

@@ -2,39 +2,114 @@ extends layout
 include mixins/_user_form
 
 block content
+
+  div(class="wrapper")
+    div(class="page-header clear-filter" filter-color="orange")
+      div(class="page-header-image" data-parallax="true" style="background-image:url('/assets/img/vtc5.jpg');")
+      div(class="container")
+        div(class="photo-container")
+          img(src="/assets/img/ryan.jpg" alt="")
+        h3(class="title") Ryan Scheinder
+        p(class="category") Chauffeur privé
+        div(class="content")
+          div(class="title")
+           h3 Pour réserver contactez moi au 0614569856
+    
+    div(class="section")
+      div(class="container")
+        div(class="button-container")
+          a(href="#button" class="btn btn-info btn-round btn-lg") Suivez moi
+          a(href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Twitter")
+           i(class="fab fa-twitter")
+          a(href="#button" class="btn btn-default btn-round btn-lg btn-icon" rel="tooltip" title="Follow me on Instagram")
+           i(class="fab fa-instagram")
+        h3(class="title") Mon Profile
+        h5(class="description profile") An artist of considerable range, Ryan — the name taken by Melbourne-raised, Brooklyn-based Nick Murphy — writes, performs and records all of his own music, giving it a warm, intimate feel with a solid groove structure. An artist of considerable range.
+
+        
+          
+        div(class="row reservForm")
+            if errors
+              ul
+                for error in errors
+                  li=error.msg
+            +userForm()
+        div(class="row")
+          div(class="col-md-6 ml-auto mr-auto")
+            h4(class="title text-center") Au départ de ...
+            div(class="nav-align-center")
+              ul(class="nav nav-pills nav-pills-primary nav-pills-just-icons" role="tablist")
+                li(class="nav-item")
+                  a(class="nav-link active" data-toggle="tab" href="#profile" role="tablist")
+                    i(class="now-ui-icons media-1_album")
+                li(class="nav-item")
+                  a(class="nav-link " data-toggle="tab" href="#home" role="tablist")
+                    i(class="now-ui-icons location_world")
+
+          div(class="tab-content gallery")
+            div(class="tab-pane active" id="home" role="tabpanel")
+              div(class="col-md-10 ml-auto mr-auto")
+                div(class="row collections")
+                  div(class="col-md-6")
+                    img(src="/assets/img/roissy2.jpg" alt="" class="img-raised")
+                    img(src="/assets/img/paris4.jpg" alt="" class="img-raised")
+                  div(class="col-md-6")
+                    img(src="/assets/img/disney1.jpg" alt="" class="img-raised")
+                    img(src="/assets/img/orly2.jpg" alt="" class="img-raised")
+            div(class="tab-pane " id="profile" role="tabpanel")
+              div(class="col-md-10 ml-auto mr-auto")
+                div(class="row collections")
+                  div(class="col-md-6")
+                    img(src="/assets/img/roissy3.jpg" alt="" class="img-raised")
+                    img(src="/assets/img/paris1.jpg" alt="" class="img-raised")
+                  div(class="col-md-6")
+                    img(src="/assets/img/paris5.jpg" alt="" class="img-raised")
+                    img(src="/assets/img/roissy4.jpg" alt="" class="img-raised")
+
+  footer(class="footer footer-default")
+    div(class="container")
+      nav
+        ul
+          li
+            a(href="/") VTC Agency
+      div(class="copyright" id="copyright")
+        
+        p  ©2019.Tous droits réservés.
+        
+           
   
-  div(id="number" )
+  //- div(id="number" )
 
 
-      h2 Contactez nous au 0614569856
+  //-     h2 Contactez nous au 0614569856
 
-      h1 Réservez une course en quelques clics
+  //-     h1 Réservez une course en quelques clics
           
 
-  h3=title 
-  div(class="loginButton")
-    h3 Avec les réseaux sociaux
-    div(id="loginImg")
+  //- h3=title 
+  //- div(class="loginButton")
+  //-   h3 Avec les réseaux sociaux
+  //-   div(id="loginImg")
       
-      a(href="/auth/twitter")
-        img(src="/images/twitter2.png" id="loginBtnImg1")
-      a(href="/auth/google")
-        img(src="/images/redgoogle4.png" id="loginBtnImg2")
+    //-   a(href="/auth/twitter")
+    //-     img(src="/images/twitter2.png" id="loginBtnImg1")
+    //-   a(href="/auth/google")
+    //-     img(src="/images/redgoogle4.png" id="loginBtnImg2")
 
-    div(id="loginImgBigScreen")
+    //- div(id="loginImgBigScreen")
       
-      a(href="/auth/twitter")
-        img(src="/images/twLoginBtn.png" id="loginBtnImg3")
-      a(href="/auth/google")
-        img(src="/images/logogoogle.png" id="loginBtnImg4")
+  //-     a(href="/auth/twitter")
+  //-       img(src="/images/twLoginBtn.png" id="loginBtnImg3")
+  //-     a(href="/auth/google")
+  //-       img(src="/images/logogoogle.png" id="loginBtnImg4")
      
   
-  if errors
-    ul
-      for error in errors
-        li=error.msg
-  +userForm()
-  .footer
-    h1 VTC Agency.
-    div(id="copyright")
-      p Copyright 2019© Tous droits réservés.
+  //- if errors
+  //-   ul
+  //-     for error in errors
+  //-       li=error.msg
+  //- +userForm()
+  //- .footer
+  //-   h1 VTC Agency.
+  //-   div(id="copyright")
+  //-     p Copyright 2019© Tous droits réservés.

@@ -1,30 +1,17 @@
 extends layout
 include mixins/_user_form
 block content
+    div(class="wrapper")
+        div(class="page-header clear-filter" filter-color="orange")
+           div(class="page-header-image" data-parallax="true" style="background-image:url('/assets/img/vtc6.jpg');")
+        div(class="espaceuser")
+           h3(class="title")=title
 
-    h3=title
-    
-    div(class="loginButton")
-        h3 Avec les réseaux sociaux
-        div(id="loginImg")
-        
-            a(href="/auth/twitter")
-                img(src="/images/twitter2.png" id="loginBtnImg1")
-            a(href="/auth/google")
-                img(src="/images/redgoogle4.png" id="loginBtnImg2")
-
-        div(id="loginImgBigScreen")
-      
-            a(href="/auth/twitter")
-                img(src="/images/twLoginBtn.png" id="loginBtnImg3")
-            a(href="/auth/google")
-                img(src="/images/logogoogle.png" id="loginBtnImg4")
-        
-        
+              
         if errors
           ul
             for error in errors
-              li=error.msg
+               li=error.msg
         +userForm()
 
 

@@ -1,16 +1,19 @@
 extends layout
 
 block content
-  img(src="/images/vtcuser1.jpg")
-  div(id="numberuser")
-    h3= title
+  div(class="wrapper")
+      div(class="page-header clear-filter" filter-color="orange")
+        div(class="page-header-image" data-parallax="true" style="background-image:url('/assets/img/vtcuser1.jpg');")
+  
+  div(class="espaceuser")
+    h3(class="title")= title
   
   
   if user
-        h3 Bonjour, 
+        h3(class="title") Bonjour, 
 
         if orders.length > 0
-            h3 Toutes vos Réservations
+            h3(class="title") Toutes vos Réservations
             each order in orders
                 article(class="item")
                     div(class="overlay")
